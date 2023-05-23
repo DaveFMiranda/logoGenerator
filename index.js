@@ -33,6 +33,8 @@ inquirer
       console.log(answers.shapeColor);
   })
 
+  //renderShape();
+
 // separate JS doc for rendering the logo
   // function that renders the shape (pull from shapes.js), make the shape a certain color
   // function that adds text to the shape (take the output of the above function and add text from user input and make it the user-specified color)
