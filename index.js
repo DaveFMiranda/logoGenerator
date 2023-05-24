@@ -1,10 +1,8 @@
 const inquirer = require("inquirer");
+const fs = require('fs');
 const {Circle, Square, Triangle} = require("./lib/shapes");
 let HTMLtext;
 let answers;
-let newShape;
-
-// Questions for the user: three characters of text; text color; shape (list: circle, triangle, square); shape color
 
 inquirer
   .prompt([
@@ -59,6 +57,7 @@ inquirer
 
     }
   });
+// Per Kenneth, if you have time, switch the if thens to switch case
 
 function renderTriangle(shapeColor, HTMLtext) {
   var newTriangle = new Triangle(
@@ -73,6 +72,28 @@ function renderTriangle(shapeColor, HTMLtext) {
     "300 200"
   );
   console.log(newTriangle);
+  triangleHTML = '<svg width="' +
+  newTriangle.width +
+  '" height="' +
+  newTriangle.height +
+  '" version="' +
+  newTriangle.version +
+  '" xmlns="' +
+  newTriangle.xmlns +
+  '">' +
+  '<polygon points="' +
+  newTriangle.left +
+  newTriangle.apex +
+  newTriangle.right +
+  '" fill="' +
+  shapeColor +
+  '" />' +
+  HTMLtext +
+  "</svg>";
+console.log(triangleHTML);
+fs.writeFile('logo.svg', triangleHTML, (err) =>
+err ? console.error(err) : console.log('Generated logo.svg')
+    );
 }
 
 function renderCircle(shapeColor, HTMLtext) {
@@ -85,9 +106,34 @@ function renderCircle(shapeColor, HTMLtext) {
     HTMLtext,
     150,
     100,
-    150
+    100
   );
   console.log(newCircle);
+  circleHTML =
+      '<svg width="' +
+      newCircle.width +
+      '" height="' +
+      newCircle.height +
+      '" version="' +
+      newCircle.version +
+      '" xmlns="' +
+      newCircle.xmlns +
+      '">' +
+      '<circle cx="' +
+      newCircle.cx +
+      '" cy="' +
+      newCircle.cy +
+      '" r="' +
+      newCircle.r +
+      '" fill="' +
+      shapeColor +
+      '" />' +
+      HTMLtext +
+      "</svg>";
+    console.log(circleHTML);
+    fs.writeFile('logo.svg', circleHTML, (err) =>
+err ? console.error(err) : console.log('Generated logo.svg')
+    );
 }
 
 function renderSquare(shapeColor, HTMLtext) {
@@ -98,81 +144,52 @@ function renderSquare(shapeColor, HTMLtext) {
     "http://www.w3.org/2000/svg",
     shapeColor,
     HTMLtext,
-    50,
-    50,
+    0,
+    0,
     200,
-    100
+    200
   );
   console.log(newSquare);
+  squareHTML =
+      '<svg width="' +
+      newSquare.width +
+      '" height="' +
+      newSquare.height +
+      '" version="' +
+      newSquare.version +
+      '" xmlns="' +
+      newSquare.xmlns +
+      '">' +
+      '<rect x="' +
+      newSquare.x +
+      '" y="' +
+      newSquare.y +
+      '" width="' +
+      newSquare.sqWidth +
+      '" height="' +
+      newSquare.sqHeight +
+      '" fill="' +
+      shapeColor +
+      '" />' +
+      HTMLtext +
+      "</svg>";
+      console.log(squareHTML);
+      fs.writeFile('logo.svg', squareHTML, (err) =>
+err ? console.error(err) : console.log('Generated logo.svg')
+);
+
 }
 
 
-// Do the above for circle and square
-// if then statements to call the proper shape render function within the .then block
-// faster, per kenneth: switch case
+
 // write the file
 
-  /*
-  console.log(newTriangle);
-  const triangleHTML =
-    '<svg width="' +
-    width +
-    '" height="' +
-    height +
-    '" version="' +
-    version +
-    '" xmlns="' +
-    xmlns +
-    '">' +
-    '<polygon points="' +
-    newTriangle.left +
-    newTriangle.apex +
-    newTriangle.right +
-    '" fill="' +
-    fill +
-    '" />' +
-    text +
-    "</svg>";
-  console.log(triangleHTML);
-}
+  
 
 
 
 
 /*
-  function renderRectangle(width, height, version, xmlns, fill, text) {
-    const newRectangle = new Rectangle(newShape, {
-      x: 50,
-      y: 50,
-      rectWidth: 200,
-      rectHeight: 100,
-    });
-    console.log(newRectangle);
-    const rectangleHTML =
-      '<svg width="' +
-      width +
-      '" height="' +
-      height +
-      '" version="' +
-      version +
-      '" xmlns="' +
-      xmlns +
-      '">' +
-      '<rect x="' +
-      newRectangle.x +
-      '" y="' +
-      newRectangle.y +
-      '" width="' +
-      newRectangle.rectWidth +
-      '" height="' +
-      newRectangle.rectHeight +
-      '" fill="' +
-      fill +
-      '" />' +
-      text +
-      "</svg>";
-    console.log(rectangleHTML);
-    */
   
 
   /*
