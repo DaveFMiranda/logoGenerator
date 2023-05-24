@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
-const fs = require('fs');
-const {Circle, Square, Triangle} = require("./lib/shapes");
+const fs = require("fs");
+const { Circle, Square, Triangle } = require("./lib/shapes");
 let HTMLtext;
 let answers;
 
@@ -36,25 +36,23 @@ inquirer
     console.log(answers.shapeChoice);
     console.log(answers.shapeColor);
     HTMLtext =
-      '<text x="150" y="125" font-size="60" text-anchor="middle" fill="' +
+      '<text x="150" y="125" font-size="50" text-anchor="middle" fill="' +
       answers.textColor +
       '">' +
       answers.text +
       "</text>";
     console.log(HTMLtext);
-    if (answers.shapeChoice === 'Triangle'){
-     renderTriangle(answers.shapeColor, HTMLtext);
-     console.log("triangle", answers.shapeChoice);
+    if (answers.shapeChoice === "Triangle") {
+      renderTriangle(answers.shapeColor, HTMLtext);
+      console.log("triangle", answers.shapeChoice);
     }
-    if (answers.shapeChoice === 'Circle'){
-   renderCircle(answers.shapeColor, HTMLtext);
-   console.log("circle", answers.shapeChoice);
-
+    if (answers.shapeChoice === "Circle") {
+      renderCircle(answers.shapeColor, HTMLtext);
+      console.log("circle", answers.shapeChoice);
     }
-    if (answers.shapeChoice === 'Square'){
-     renderSquare(answers.shapeColor, HTMLtext);
-     console.log("square", answers.shapeChoice);
-
+    if (answers.shapeChoice === "Square") {
+      renderSquare(answers.shapeColor, HTMLtext);
+      console.log("square", answers.shapeChoice);
     }
   });
 // Per Kenneth, if you have time, switch the if thens to switch case
@@ -72,28 +70,29 @@ function renderTriangle(shapeColor, HTMLtext) {
     "300 200"
   );
   console.log(newTriangle);
-  triangleHTML = '<svg width="' +
-  newTriangle.width +
-  '" height="' +
-  newTriangle.height +
-  '" version="' +
-  newTriangle.version +
-  '" xmlns="' +
-  newTriangle.xmlns +
-  '">' +
-  '<polygon points="' +
-  newTriangle.left +
-  newTriangle.apex +
-  newTriangle.right +
-  '" fill="' +
-  shapeColor +
-  '" />' +
-  HTMLtext +
-  "</svg>";
-console.log(triangleHTML);
-fs.writeFile('logo.svg', triangleHTML, (err) =>
-err ? console.error(err) : console.log('Generated logo.svg')
-    );
+  triangleHTML =
+    '<svg width="' +
+    newTriangle.width +
+    '" height="' +
+    newTriangle.height +
+    '" version="' +
+    newTriangle.version +
+    '" xmlns="' +
+    newTriangle.xmlns +
+    '">' +
+    '<polygon points="' +
+    newTriangle.left +
+    newTriangle.apex +
+    newTriangle.right +
+    '" fill="' +
+    shapeColor +
+    '" />' +
+    HTMLtext +
+    "</svg>";
+  console.log(triangleHTML);
+  fs.writeFile("logo.svg", triangleHTML, (err) =>
+    err ? console.error(err) : console.log("Generated logo.svg")
+  );
 }
 
 function renderCircle(shapeColor, HTMLtext) {
@@ -110,30 +109,30 @@ function renderCircle(shapeColor, HTMLtext) {
   );
   console.log(newCircle);
   circleHTML =
-      '<svg width="' +
-      newCircle.width +
-      '" height="' +
-      newCircle.height +
-      '" version="' +
-      newCircle.version +
-      '" xmlns="' +
-      newCircle.xmlns +
-      '">' +
-      '<circle cx="' +
-      newCircle.cx +
-      '" cy="' +
-      newCircle.cy +
-      '" r="' +
-      newCircle.r +
-      '" fill="' +
-      shapeColor +
-      '" />' +
-      HTMLtext +
-      "</svg>";
-    console.log(circleHTML);
-    fs.writeFile('logo.svg', circleHTML, (err) =>
-err ? console.error(err) : console.log('Generated logo.svg')
-    );
+    '<svg width="' +
+    newCircle.width +
+    '" height="' +
+    newCircle.height +
+    '" version="' +
+    newCircle.version +
+    '" xmlns="' +
+    newCircle.xmlns +
+    '">' +
+    '<circle cx="' +
+    newCircle.cx +
+    '" cy="' +
+    newCircle.cy +
+    '" r="' +
+    newCircle.r +
+    '" fill="' +
+    shapeColor +
+    '" />' +
+    HTMLtext +
+    "</svg>";
+  console.log(circleHTML);
+  fs.writeFile("logo.svg", circleHTML, (err) =>
+    err ? console.error(err) : console.log("Generated logo.svg")
+  );
 }
 
 function renderSquare(shapeColor, HTMLtext) {
@@ -144,50 +143,42 @@ function renderSquare(shapeColor, HTMLtext) {
     "http://www.w3.org/2000/svg",
     shapeColor,
     HTMLtext,
-    0,
+    50,
     0,
     200,
     200
   );
   console.log(newSquare);
   squareHTML =
-      '<svg width="' +
-      newSquare.width +
-      '" height="' +
-      newSquare.height +
-      '" version="' +
-      newSquare.version +
-      '" xmlns="' +
-      newSquare.xmlns +
-      '">' +
-      '<rect x="' +
-      newSquare.x +
-      '" y="' +
-      newSquare.y +
-      '" width="' +
-      newSquare.sqWidth +
-      '" height="' +
-      newSquare.sqHeight +
-      '" fill="' +
-      shapeColor +
-      '" />' +
-      HTMLtext +
-      "</svg>";
-      console.log(squareHTML);
-      fs.writeFile('logo.svg', squareHTML, (err) =>
-err ? console.error(err) : console.log('Generated logo.svg')
-);
-
+    '<svg width="' +
+    newSquare.width +
+    '" height="' +
+    newSquare.height +
+    '" version="' +
+    newSquare.version +
+    '" xmlns="' +
+    newSquare.xmlns +
+    '">' +
+    '<rect x="' +
+    newSquare.x +
+    '" y="' +
+    newSquare.y +
+    '" width="' +
+    newSquare.sqWidth +
+    '" height="' +
+    newSquare.sqHeight +
+    '" fill="' +
+    shapeColor +
+    '" />' +
+    HTMLtext +
+    "</svg>";
+  console.log(squareHTML);
+  fs.writeFile("logo.svg", squareHTML, (err) =>
+    err ? console.error(err) : console.log("Generated logo.svg")
+  );
 }
 
-
-
 // write the file
-
-  
-
-
-
 
 /*
   
@@ -225,7 +216,6 @@ err ? console.error(err) : console.log('Generated logo.svg')
   }
 */
 
-  
 /*
   renderRectangle(
     newShape.width,
@@ -236,8 +226,8 @@ err ? console.error(err) : console.log('Generated logo.svg')
     newShape.text
   );
   */
-  
-  /*
+
+/*
   renderCircle(
     newShape.width,
     newShape.height,
