@@ -90,6 +90,15 @@ function renderTriangle(shapeColor, HTMLtext) {
     HTMLtext +
     "</svg>";
   console.log(triangleHTML);
+  triangleTestHTML =
+    '<polygon points="' +
+    newTriangle.left +
+    newTriangle.apex +
+    newTriangle.right +
+    '" fill="' +
+    shapeColor +
+    '" />';
+    console.log(triangleTestHTML)
   fs.writeFile("logo.svg", triangleHTML, (err) =>
     err ? console.error(err) : console.log("Generated logo.svg")
   );
