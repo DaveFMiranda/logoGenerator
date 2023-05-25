@@ -1,7 +1,7 @@
 // Imports packages and shape constructors
 const inquirer = require("inquirer");
 const fs = require("fs");
-const { Circle, Square, Triangle } = require("./lib/shapes");
+const { Circle, Square, Triangle } = require("./lib/shapes.js");
 
 // Asks user questions to build logo
 inquirer
@@ -83,7 +83,7 @@ function renderTriangle(shapeColor, HTMLtext) {
     HTMLtext +
     "</svg>";
   // Creates the .svg file
-  fs.writeFile("logo.svg", triangleHTML, (err) =>
+  fs.writeFile("examples/logo.svg", triangleHTML, (err) =>
     err ? console.error(err) : console.log("Generated logo.svg")
   );
 }
@@ -122,7 +122,7 @@ function renderCircle(shapeColor, HTMLtext) {
     '" />' +
     HTMLtext +
     "</svg>";
-  fs.writeFile("logo.svg", circleHTML, (err) =>
+  fs.writeFile("examples/logo.svg", circleHTML, (err) =>
     err ? console.error(err) : console.log("Generated logo.svg")
   );
 }
@@ -164,7 +164,7 @@ function renderSquare(shapeColor, HTMLtext) {
     '" />' +
     HTMLtext +
     "</svg>";
-  fs.writeFile("logo.svg", squareHTML, (err) =>
+  fs.writeFile("examples/logo.svg", squareHTML, (err) =>
     err ? console.error(err) : console.log("Generated logo.svg")
   );
 }

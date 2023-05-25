@@ -6,13 +6,15 @@
 
 This app accepts user input (text, text color, one of three shapes, and shape color) and generates an .svg image based on that input.
 
-Here's a walkthrough video: (INSERT WALK-THROUGH VIDEO)
+Here's a walkthrough video: https://watch.screencastify.com/v/f6r2pWyGTgv2pHj0c27H
 
 (INSERT THREE SCREENSHOTS: ONE FOR EACH SHAPE WITH INPUT AND GENERATED SHAPE)
 
-Here's a screenshot of the input: ![Screenshot](/screenshot1.png)
+Here's a screenshot of a triangle: ![Screenshot](/assets/screenshot1.png)
 
-Here's a screenshot of a sample README: ![Screenshot](/screenshot2.png)
+Here's a screenshot of a circle: ![Screenshot](/assets/screenshot2.png)
+
+Here's a screenshot of a square: ![Screenshot](/assets/screenshot3.png)
 
 ## Table of Contents
 
